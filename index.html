@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Add a gray background color with some padding */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
+  background: #f1f1f1;
+}
+
+/* Header/Blog Title */
+.header {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+
+.subheader {
+    font-size: 20px;
+    text-align: center;
+    background: white;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+}
+
+/* Fake image */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h3>Alishba.</h3>
+  <div class="subheader">
+        <p></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+        <div class="card">
+                <h2>About Me.</h2>
+                <p>I'm a 16-year-old Blockchain and Machine Learning enthusiast and developer. I spend my time learning about technology, coding and building things to solve important problems in healthcare, finance and energy.
+                  <br>
+                  <br>
+                  I've worked as an ML developer with top companies like TD Bank and Pngme. While, having the opportunity to consult organizations like Walmart and Google.</p>
+                  <br>
+                <h2>Currently.</h2>
+                <p>-Leading a Machine Learning practice at SF startup <a href="https://pngme.com/">Pngme</a> which is a lending platform that captures and analyzes millions of data points from smartphones so that lenders can underwrite loans in emerging markets.</p>
+                <p>-Helping to build out an app for coronavirus cases and prevention in Africa. Basically there is not nearly enough information in Africa - including reporting. The goal is to help citizens have access to symptoms, preventions and GIS maps with real-time data. This will be live soon.</p>
+                <p>-With the support of <a href="https://www.kindred.ai/">Kindred.ai</a>, I'm working on developing a robotic arm to improve the grasp and grip of the hand using CNNs. The goal is to deploy this on a robotic prosthetic arm.</p>
+                <p>-Diving deep into the energy storage market to better understand current methods and coming up with my own solution to tackle energy storage with renewables.</p>
+
+                
+        </div>
+
+        <div class="card">
+
+                <h2>Machine Learning & Robotics Projects.</h2>
+              
+                <h4><li>Improved Grasp of Mini-Robot Arm using Computer Vision and RL</li></h4>
+                  <p>Using TensorFlow object detection API and Deep Deterministic Policy Gradient (DDPG) for increased precision control grasp and grip. Currently working on: training against grasp positions and sending to a Nvidia Jetson GPU with arduino microcontroller to process images for Robotic Prosthetic Arm.</p>
+                  <h5><a href="https://www.notion.so/Prosthetic-Arm-Project-5998127e76a34b2cbf6e6cb2eab75a4a">Learn More</a></h5>
+                <h4><li>Reinforcement Learning Pick and Place Robotic Arm Simulation</li></h4>
+                  <p>Using OpenAi's Robotics environment Fetch where I trained a robotic arm to lift, slide, move objects to defined targets using Deep Deterministic Policy Gradients (DDPG) and Hindsight Experience Replay (HER).</p>
+                  <h5><a href="https://github.com/alishbaimran/Robotics-DDPG-HER">Learn More</a></h5>
+                <h4><li>Everva: patient portal system</li></h4>
+                  <p>Integratable EHR Patient Portal System for hospitals with Risk Scores, Preventative Measures using Naïve Bayes Classifier, and Data Visualizations using D3 and React.</p>
+                  <h5><a href="https://medium.com/datadriveninvestor/hospitals-are-losing-41-3b-due-to-this-problem-910684049818?source=friends_link&sk=036bcefc84041470d54705dae1f9d4f7">Learn More</a></h5>
+                <h4><li>Pneumonia Detection from X-rays using CNNs</li></h4>
+                  <p>CNN trained on pre-trained Oxford VGG19 Network to detect whether a patient has pneumonia, both bacterial and viral, based on an X-ray image of their chest.</p>
+                  <h5><a href="https://youtu.be/zyyvFNEKcZ4">Learn More</a></h5>
+                <h4><li>Detecting epigenetic factors for Breast Cancer</li></h4>
+                  <p>Detecting biomarkers like methylation/acetylation among genes and histones heatmaps for breast cancer with a convolutional neural network.</p>
+                  <h5><a href="https://docs.google.com/document/d/1G9dYniyb_JADNntvPbX6zzRLXG3-yhok4IlfQRsS8l0/edit?usp=sharing">Learn More</a></h5>
+              </div>
+
+              <div class="card">
+
+                <h2>Blockchain Projects.</h2>
+                <h4><li>Honestblocks: tracking medication in supply chain.</li></h4>
+                  <p>Using Hyperledger Fabric to track counterfeit medicine in a supply chain. For each patient and medicine, the manufacturer, ID number of a particular drug packet, timestamp, the current holder and location are noted in the ledger and cross-referenced with a QR code to authenticate.</p>
+                  <h5><a href="http://honestblocks.info/">Learn More</a></h5>
+                <h4><li>Real Estate DApp</li></h4>
+                  <p>Homeownership DApp to exchange and own properties using smart contracts on Ethereum. </p>
+                  <h5><a href="https://github.com/alishbaimran/RealEstateApp">Learn More</a></h5>
+                <h4><li>Real-Time Polling DApp</li></h4>
+                  <p>An Ethereum smart contract for voting between two people. Using Node.js & Mongoose to develop a client-side application that allows accounts to cast votes. </p>
+                  <h5><a href="https://github.com/alishbaimran/Blockchain-Daap-Voting-App">Learn More</a></h5>
+                <h4><li>Digital Identity on a Decentralized Network</li></h4>
+                  <p>Working with TD Bank, I helped develop a POC of a decentralized method to verify identity as a way to easily get access to the services and products through a plug-in with virtually many third parties. </p>
+                  <h5><a href="https://medium.com/@alishbai734/my-experience-working-one-of-the-big-five-banks-cd3894111b82?source=friends_link&sk=3bc0ed9cfa5e8dc034a31bc296b726d6">Learn More</a></h5>
+                
+              </div>
+
+    <div class="col-md-3 col-sm-6"> 
+      
+
+    </div>
+
+   
+  </div>
+  
+  
+  <div class="rightcolumn">
+
+      <div class="card">
+          <h3>Follow Me</h3>
+          <p><a href="https://twitter.com/alishbaimran_">Twitter</a></p>
+          <p><a href="https://www.linkedin.com/in/alishba-imran-/">Linkedin</a></p>
+          <p><a href="https://github.com/alishbaimran">Github</a></p>
+          <p><a href="https://medium.com/@alishbai734">Medium</a></p>
+        </div>
+      
+    <div class="card">
+      <h3>Popular Blogs</h3>
+      <div class=""><a href="https://medium.com/datadriveninvestor/training-a-robotic-arm-to-do-human-like-tasks-using-rl-8d3106c87aaf?source=friends_link&sk=40ff67aa889c71a50dcab738469d7c46">Training a Robotic Arm to do Human-Like Tasks using RL</a></div><br>
+      <div class=""><a href="https://medium.com/datadriveninvestor/hospitals-are-losing-41-3b-due-to-this-problem-910684049818?source=friends_link&sk=036bcefc84041470d54705dae1f9d4f7">Hospitals are losing $41.3B due to this problem</a></div><br>
+      <div class=""><a href="https://medium.com/@alishbai734/just-200-lines-of-code-blockchain-will-disrupt-every-company-by-2027-6d7b381c0fbb?source=friends_link&sk=f0b07eb24d64d4868563903c86e31ff1">Just 200 lines of code: blockchain will disrupt every company by 2027</a></div>
+    </div>
+   
+   
+    <div class="card">
+      <h3>Media</h3>
+      <div class=""><a href="https://www.galtalkstech.com/2020/02/18/alishba-imran-blockchain-machine-learning-developer-at-the-knowledge-society/">Alishba Imran – Blockchain & Machine Learning Developer</a></div><br>
+      <div class=""><a href="https://www.yahoo.com/now/2020-01-09-the-teenager-thats-at-ces-to-network.html">The teenager who's at CES to network</a></div><br>
+      <div class=""><a href="https://www.shondaland.com/live/technology/a31980435/the-power-of-impact-innovation/">The Power of Impact Innovation</a></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
