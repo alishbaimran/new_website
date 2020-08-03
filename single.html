@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+      .callout-left {
+        background-color: #edefff;
+      }
+
+      .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      }
+
+      .center-1 {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 22%;
+      }
+      .center-2 {
+        width: 17px;
+      }
+      .center-3 {
+        width: 22px;
+      }
+
+      .center-4 {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 27%;
+      }
+
+      .center-5 {
+        width: 13px;
+      }
+
+      .center-6 {
+        width: 16px;
+      }
+
+      .center-7 {
+        width: 30px;
+      }
+
+      .center-8 {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+      }
+      .center-9 {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+      }
+    </style>
+
+
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+	  
+
+		<section class="ftco-section">
+      <div class="container">
+        <div class="row">
+          <div>
+              <h2 class="mb-3 bread" style="text-align:center;">Neural-Symbolic AI Approach to Humanoid Manipulation</h2>
+              <p style="text-align:center;">By Alishba Imran</p>
+              <p style="text-align:center;"><a href="https://twitter.com/alishbaimran_">Twitter</a> | <a href="https://www.linkedin.com/in/alishba-imran-/">Linkedin</a> | <a href="mailto:alishbai734@gmail.com">Email 💬</a></p>
+              <p>👋 I'm Alishba, a 17-year-old who's passionate about using hardware & software to tackle problems in deep tech. </p>
+              <p>I've been working with <a href="https://www.hansonrobotics.com/"> Hanson Robotics</a> (creators of Sophia the robot) to develop various deep learning techniques as a new way to automate manipulation tasks in humanoids/robots like Sophia. We're developing neural networks, for <b>closed-loop grasping to ultimately develop neural symbolic AI approaches that improve our understanding and ability to grab novel objects in unstructured environments.</b> </p>
+              <hr>
+            <h2 class="mb-3">Robotic Perception</h2>
+            <p>Before we get into the specifics, let's go over some of the key components in robotic perception. <b>Robotic perception is the ability of robots to learn from sensory data and, based on learned models, to react and take decisions accordingly.</b> It consists of three components: 1. perceive 2. comprehend and 3. reason about the surrounding environment</p>
+            <p>Key modules of a typical robotic perception system are: sensory data processing (focusing here on visual and range perception); data representations specific for the tasks at hand; algorithms for data analysis and interpretation (using AI/ML methods); and planning and execution of actions for robot-environment interaction.</p>
+            <br>
+            <img class="center" src="img/roboticperception.png">
+            <br>
+            <h4 class="mb-3 mt-5">Sensor-based environment representation/mapping</h4>
+            <p>Data from sensors are super key in robotic perception and it can come from a single or multiple sensors, usually mounted onboard the robot or from external cameras mounted on. </p>
+           <p>Sensor-based environment mapping includes the acquisition of a metric model and its semantic interpretation. This semantic mapping process includes reasoning on volumetric occupancy and occlusions, or identifying, describing objects to enable reasoning and inference regarding the real-world environment where the robot operates.</p>
+           <h2 class="mb-3">Grasping Task</h2>
+           <p>Robotic grasping is one of the most fundamental robotic manipulation tasks: before interacting with objects in the world, a robot starts by grasping them.</p>
+           <p>In order to do this, the robot has to work through many things such as (but not limited to):</p>
+           <ul>
+             <li><b>Inverse Kinematics.</b> Based on the desired location for the tip of the robotic arm, what should the angles of the joints be so that you can move the arm to the desired location.</li>
+             <li><b>Grasping position. </b>Identifying where to best grab the object. If this is done on a hand, then we also need to consider orientation of the hand for the grab.</li>
+             <li><b>Sensing.</b> This includes sensing where the object is, how far it is from the robot (depth) and information about the surrounding environment. </li>
+           </ul>
+           <b><p>These tasks are difficult today for two main reasons:</p></b>
+           <ol>
+             <li>Performing grasping and manipulation tasks in unstructured environments require computing grasps for the almost unlimited number of objects it might encounter. </li>
+             <li>The robot must be able to act in dynamic environments, whether that be noise and errors in perception, inaccuracies in the robot’s control, or perturbations to the robot itself.</li>
+           </ol>
+           <p>This is where using computer vision or CNN approaches come in handy.</p>
+           <h2 class="mb-3">Neural Network: GG-CNN</h2>
+           <p>The algorithm that I used for grasping detection is a Generative Grasping Convolutional Neural Network (GG-CNN) widely inspired by <a href="https://arxiv.org/pdf/1804.05172.pdf">this</a> paper. A GG-CNN works by taking in depth images of objects and predicting the pose of grasps at every pixel for different grasping tasks and objects.</p>
+           <p><b>Why CNN?</b></p>
+
+              <p>CNN-based controllers for grasping are preferred since they can do closed-loop grasping. Both systems learn controllers which map potential control commands to the expected quality of or distance to a grasp after execution of the control, requiring many potential commands to be sampled at each time step.</p>
+
+            <p><b>Status Quo:</b></p>
+              <ul>
+                <li>Currently classifying grasp candidates are sampled from an image or point cloud, then are ranked individually using a CNN. Once the best grasp candidate is determined, a robot executes the grasp open-loop (without any feedback).</li>
+                <li><b>It’s not the best: </b>This requires precise calibration between the camera and the robot, precise control of the robot and a completely static environment. This can also take a long time and lots of computation to run in real-time.</li>
+                <li><b>GG-CNN is better: </b>Using this we can directly generate grasp poses for every pixel in an image simultaneously, in a closed-loop manner which also uses a comparatively small neural network.</li>
+              </ul>
+
+              <p><b>What is GG-CNN?</b></p>
+              <ul>
+                <li>Takes in real-time depth images and identifies objects through object detection.</li>
+                <li>Parameterised as a grasp quality, angle and gripper width which is done for every pixel in the input image in a fraction of a second.</li>
+                <li>The best grasp is calculated and a velocity command (v) is issued to the robot.</li>
+              </ul>
+              <img class="center" src="img/ggcnn.png">
+              <br>
+
+              <p><b>Benefits:</b></p>
+              <ul>
+                <li>Less compute since less parameters are used.</li>
+                <li>Grasping task is done pixel by pixel which is faster and more accurate.</li>
+                <li>Closed-loop (takes in feedback from the previous batch to improve overtime). Contains visual servoing which are able to adapt to dynamic environments and do not necessarily require fully accurate camera calibration or position control.</li>
+              </ul>
+
+
+              <h4>Grasping Pose</h4>
+              <p>Grasp is executed perpendicular to a plane surface, given a depth image of the scene which is determined by its pose (such as the grippers centre position based on x,y,z values in Cartesian coordinates). The grippers rotation around the z axis and the required gripper width. A scalar value is also used to represent the chances of grasp success in the pose. </p>
+              <p>A grasp can be described as:</p>
+              <img class="center-1" src="img/grasp.png">
+              <ul>
+                <li><img src="img/s.png" class="center-2" > = (u, v) which is the centre point in pixels.</li>
+                <li><img src="img/Q.png" class="center-2" > is the rotation in the camera’s reference frame.</li>
+                <li><img src="img/w.png" class="center-3" > is is the grasp width in pixels.</li>
+              </ul>
+
+              <p>A grasp in the image space <img src="img/g.png" class="center-5" > can be converted to a grasp in world coordinates
+                <img src="img/g1.png" class="center-6" >  by transforming it with the following:</p>
+                <img class="center-4" src="img/equation.png">
+                <ul>
+                    <li><img src="img/trc.png" class="center-7" > transforms from the camera frame to the world/robot frame.</li>
+                    <li><img src="img/tci.png" class="center-7" > transforms from 2D image coordinates to the 3D camera frame, based on the camera's parameters and defined calibration between the robot and camera.</li>
+                  </ul>
+
+                  <p><b>Grasp Representation:</b> represents a grasp map (G) as a set of three images, Q, Φ and W:</p>
+                  <ul>
+                    <li>Q is an image that describes the quality of a grasp executed at each point (u, v). The value is a scalar in the range [0, 1] where a value closer to 1 indicates higher grasp quality.</li>
+                    <li>Φ is an image that describes the angle of a grasp to be executed at each point. The angles are given in the range [−π/2, π/2].</li>
+                    <li>W is an image that describes the gripper width of a grasp to be executed at each point. To allow for depth invariance, values are in the range of [0, 150] pixels, which can be converted to a physical measurement using the depth camera parameters and measured depth, and the gripper used.</li>
+                  </ul>
+
+                  <h4>Dataset: Cornell Grasping</h4>
+                  <p>To train our network, I used the <a href="http://pr.cs.cornell.edu/grasping/rect_data/data.php">Cornell Grasping Dataset</a> which contains 885 RGB-D images of real objects, with 5110 human-labelled positive and 2909 negative grasps. This dataset is good for our task because it has a pixelwise grasp representation as multiple labelled grasps.</p>
+                  <img class="center" src="img/network.png">
+                  <p>Depth and RGB images from the Cornell Grasping Dataset with the ground-truth positive grasp rectangles are shown in green. From the ground-truth grasps, the Grasp Quality (QT), Grasp Angle (ΦT) and Grasp Width (WT) images are generated to train the network. The angle is further decomposed into cos(2ΦT ) and sin(2ΦT ) for training.</p>
+                  <h4>Summary of Model:</h4>
+                  <ul>
+                    <li>The GG-CNN takes in a depth image.</li>
+                    <li>It directly generates a grasp pose for every pixel comprising of the grasp quality, grasp width and grasp angle. </li>
+                    <li>From the combined network output, we can compute the best grasp point to reach for the object.</li>
+                  </ul>
+                    <p><b>Results:</b></p>
+                    <p>I've finished training the model and testing/validating it. Based on current tests, the model is able to get a 83% grasp success rate on a set of previously unseen objects and 88% on a set of household objects that are moved during the grasp attempt and 81% accuracy when grasping in dynamic clutter. Overtime, I'll be working to train the model more with new data to increase the accuracy. </p>
+        
+                    <h2 class="mb-3">Other Approaches: Reinforcement Learning & Imitation Learning</h2>
+
+                    <p>Reinforcement Learning (RL) figures out what to do and how to map situations to actions. The end result is to maximize the numerical reward signal but instead of telling the learner what action to take, they must discover which action will result in the maximum reward. In our case, the action would be grasping an object with a high success rate.</p>
+                    <p>Using RL, we can get an agent to learn the optimal policy for performing a sequential decision without complete knowledge of the environment.
+                        The agent first explores the environment by taking action and then edits the policy according to the reward function to maximize the reward. To train the agent, we can use: </p>
+                         <ul>
+                           <li><b>Deep Deterministic Policy Gradient (DDPG).</b> A model-free off-policy algorithm for learning continous actions.</li>
+                           <li><b>Trust Region Policy Optimization (TRPO).</b> Policy Gradient methods (PG) are commonly used and at a high level use gradient ascent to follow policies with the steepest increase in rewards. This is not very accurate for curved areas though and that is why TRPO are effective for optimizing large nonlinear policies.</li>
+                           <li><b>Proximal Policy Optimization (PPO).</b> At a very high level, PPO have some of the benefits of TRPO but are much simpler to implement and tune.</li>
+
+                         </ul>
+
+                         <p>To learn more about these, you can read <a href="https://arxiv.org/abs/1802.10264">this</a> paper which testing all of these in a simulated environment and compared the results.</p>
+                       
+                         <img class="center" src="img/RL.jpeg">
+                         <p>Key Terms to note here are:</p>
+
+                         <ul>
+                           <li><b>Environment:</b> the pysical world in which the agent works</li>
+                           <li><b>State: </b>Current 'status' of the agent</li>
+                           <li><b>Policy:</b> Method to map agent’s state to actions</li>
+                           <li><b>Value:</b>The reward that an agent would receive if they take an action in a particular state</li>
+                         </ul>
+
+                         <p>Some of the key limitations to RL right now is that <b>it's very hard to find the most optimal reward function and setting up a grasping experiment in real life is hard.</b> For this reason, most implementations of this have been done via simulation but results might not translate as well in real life.</p>
+                         <p>Examples of simulations are as such:</p>
+                         <img class="center-9" src="img/example.png">
+                         <p> The robot must pick up objects in a bin, which is populated using randomized
+                            objects and then generalize to unseen test objects or pick up a specific object from a
+                            cluttered bin.</p>
+
+                         <p><b>To overcome of these barriers, we could also use Imitation learning where the learner tries to mimic an experts action in order to achieve the best performance.</b> This is easier to faciliate since a human can do the actions and the model can learn based on that overtime. We can use the DAgger algorithm to accomplish these tasks. I'll be going into more details about these in a future blog post.</p>
+
+                    <h2 class="mb-3">Neuro-Symbolic AI</h2>
+                    <p>The neural network would just be part of the entire system, as in the long-term the goal is to integrate it with symbolic reasoning techniques such as rules engines or expert systems or knowledge graphs. This is often referred to as Nero-Symbolic AI. Examples of this can be using neural networks to identify what kind of shape or colour a particular object has and then applying symbolic reasoning to identify other properties such as the area of the object, volume and so on. </p>
+                    <p><b>Why should we combine neural networks with symbolic reasoning? </b></p>
+                    <p>Current deep learning models are too narrow. When you give them huge amounts of data, they work very well at the task you want it to perform but break down if you prompt it to adapt to a more general task. To do this you also need enormous amounts of data. On the other hand, symbolic AI is really good at doing interesting things with symbols but actually getting the symbols from the real world is much harder than anticipated. </p>
+
+                  <p>By combining the two approaches, you end up with a system that has neural pattern recognition allowing it to see, while the symbolic part allows the system to logically reason about symbols, objects, and the relationships between them. </p>
+
+                  <h4>Here's an example of how Neuro-Symbolic AI works:</h4>
+                  <ul>
+                    <li>A neural network for object detection can be used to map from inputs (like an image of an apple) to output (like the label “apple”). </li>
+                    <li>Symbolic AI is different since it would instead express all the knowledge we have about apples: an apple has parts (a stem and a body), it has properties like its color, it has an origin (it comes from an apple tree), and so on. </li>
+                    <li>Combining these two approaches will allow you to still detect the object but draw more insights about the object, the environment it's in and it's interactions. </li>
+                  </ul>
+
+                  <h4>MIT-IBM CLEVRER</h4>
+                  <p>CLEVR is one of the first datasets using neuro-symbolic ai that provides a set of images that contain multiple solid objects and poses questions about the content and the relationships of those objects (visual questioning). If you want to train a neural network to solve a system like that, you might be able to do it but it requires tremendous amounts of data.</p>
+                  <p>To solve this, they first use a CNN to process the image and create a list of objects and their characteristics such as color, location and size. These are types of symbolic representation that rule-based AI models can be used on. Another NLP algorithm processes the question and parses it into a list of classical programming functions that can be run on the objects list. The result is a rule-based program that expresses and solves the problem in symbolic AI terms. The AI model is trained with reinforcement learning through trial and error based on the rules of the environment it is operating in. </p>
+
+                  <img class="center-8" src="img/MIT-IBM.png">
+
+                  <p>To learn more about this, you can read <a href="https://mitibmwatsonailab.mit.edu/research/blog/clevrer-the-first-video-dataset-for-neuro-symbolic-reasoning/">this</a> blog. </p>
+
+                  <p><b>How could we do this for grasping? </b></p>
+                  <p>We can create a map of different applications and capabilities through affordances. Affordances include the perceived and actual properties of a thing that provide cues to the operation of things. Affordances can be symbolic representations used to complete a task. Combining these capabilities with neural network which can make a prediction for grasping and turn that into symbolic representation that can be reasoned with through calling functions.</p>
+                  <h2 class="mb-3">Next Steps</h2>
+                  <p>Over the next few weeks I'll be working on the following to progress this project forward:</p>
+                  <ul>
+                    <li>Test out current gg-cnn model with ROS implementation on robotic arm.</li>
+                    <li>Generate my own dataset for applications that Sophia will be tested on.</li>
+                    <li>Create model for multi-finger grasp. </li>
+                    <li>Going deeper into Neural-Symbolic AI and framing how we can use this technique for manipulation tasks such as grasping. </li>
+                    <li>Integrate model into Hanson Robotics simulation environment to test out model on Sophia. Eventually, the goal is to use the model alongside existing systems that are based on symbolic representations.</li>
+                  </ul>
+                  <hr>
+                  Thanks for reading! For any questions or feedback you can reach me: <p style="text-align:center;"><a href="https://twitter.com/alishbaimran_">Twitter</a> | <a href="https://www.linkedin.com/in/alishba-imran-/">Linkedin</a> | <a href="mailto:alishbai734@gmail.com">Email 💬</a></p>  
+                  <!-- AddToAny BEGIN -->
+<p>If you enjoyed this blog, please do share it:</p>
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+    <a class="a2a_button_email"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_linkedin"></a>
+    </div>
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+    <!-- AddToAny END -->
+
+          </div> <!-- .col-md-8 -->
+
+        </div>
+      </div>
+    </section> <!-- .section -->
+
+   
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  
+  <script src="js/main.js"></script>
+    
+  </body>
+</html>
